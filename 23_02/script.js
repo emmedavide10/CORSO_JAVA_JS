@@ -34,47 +34,50 @@
     }
 }*/
 
+   
+function maiuscMinusc() {
+  var stringaOld = document.getElementsByName("stringa")[0].value;
+  var parola = stringaOld.split(" ");
+  var stringaFinale = "";
 
+  console.log(parola);
 
-function changeLettereStringa(){
+  //controllo maiuscolo/minuscolo dell'iniziale della parola, ciclo finche non finisce la frase
+  for (var i = 0; i < parola.length; i++) {
+    let asciiIniziale = parola[i].charAt(0);
 
-    var stringaOld = document.getElementsByName("stringa")[0].value;
-    var cConvertedAsciiSucc=0;
-    var cConvertedAscii=0;
-    var c="";
-    var cSucc="";
-    var stringaNuova = "";
-
-    for (let i = 0; i < stringaOld.length; i++) {
-        c = stringaOld[i];
-        console.log(c);
-        cSucc = stringaOld[i++];
-        console.log(cSucc);
-
-        cConvertedAscii = c.charCodeAt(i);
-        cConvertedAsciiSucc = c.charCodeAt(i++);
-        console.log(cConvertedAscii);
-        console.log(cConvertedAsciiSucc);
-
-        
-        if(cConvertedAscii==32){
-            stringaNuova+=" ";
-            if(cConvertedAscii>=97 && cConvertedAscii<=122){
-                cConvertedAsciiSucc=(cConvertedAscii[i++])-32;
-                console.log(cConvertedAsciiSucc);
-                stringaNuova+=String.fromCharCode(cConvertedAsciiSucc);
-                console.log(stringaNuova);
-                continue;
-            }
-            else if(cConvertedAscii>=65 && cConvertedAscii<=90){
-                cConvertedAsciiSucc=(cConvertedAscii[i++])+32;
-                console.log(cConvertedAsciiSucc);
-                stringaNuova+=String.fromCharCode(cConvertedAsciiSucc);
-                console.log(stringaNuova);
-                continue;
-            }
-        }
+    if (asciiIniziale >= "A" && asciiIniziale <= "Z") {
+      //se il codice ascii della prima lettera è compreso tra la MAIUSCOLE
+      let asciiInizialeConverted = parola[i].charCodeAt(0);
+      stringaFinale += String.fromCharCode(asciiInizialeConverted);
     }
-    alert(stringaNuova);
-    return stringaNuova;
+    if (asciiIniziale >= "a" && asciiIniziale <= "z") {
+        // se il carattere e' minuscolo allora diventa maiuscolo
+      let asciiInizialeConverted = parola[i].charCodeAt(0);
+      asciiInizialeConverted -= 32;
+      stringaFinale += String.fromCharCode(asciiInizialeConverted);
+    }
+    console.log(parola[i].length);
+
+    //controllo maiuscolo/minuscolo degli altri caratteri della parola, ciclo finche non finisce la parola
+    for (let j = 1; j < parola[i].length; j++) {
+      let asciiSucc = parola[i].charAt(j);
+
+      if (asciiSucc >= "a" && asciiSucc <= "z") {
+        // se è tra le MINUSCOLEB
+        let asciiSuccConverted = parola[i].charCodeAt(j);
+        stringaFinale += String.fromCharCode(asciiSuccConverted);
+      }
+      if (asciiSucc >= "A" && asciiSucc <= "Z") {
+        // se il carattere e' maiuscolo allora diventa minuscolo
+        let asciiSuccConverted = parola[i].charCodeAt(j);
+        asciiSuccConverted += 32;
+        stringaFinale += String.fromCharCode(asciiSuccConverted);
+      }
+    }
+    stringaFinale += " ";
+  }
+
+  console.log(stringaFinale);
+  alert(stringaFinale);
 }
