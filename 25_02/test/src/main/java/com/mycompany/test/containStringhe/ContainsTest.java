@@ -4,7 +4,6 @@
  */
 package com.mycompany.test.containStringhe;
 
-import java.util.Scanner;
 import javax.swing.*;
 
 /**
@@ -18,7 +17,6 @@ public class ContainsTest {
      */
     public static void main(String args[]) {
         // TODO code application logic here
-        Scanner scanner = new Scanner(System.in);
         String str1=JOptionPane.showInputDialog("Dammi prima stringa");
         String str2=JOptionPane.showInputDialog("Dammi seconda stringa");
         if(str1.contains(str2)){
@@ -26,7 +24,7 @@ public class ContainsTest {
         }else if(str2.contains(str1)){
             JOptionPane.showMessageDialog(null, "la stringa: "+str2+" continene la stringa: "+str1);
         }else{
-            JOptionPane.showMessageDialog(null, "nessuna delle due stringhe e' contenuta nell'altra");
+            JOptionPane.showMessageDialog(null, "la stringa: "+str1+" continene la stringa: "+str2);
         }
     }
 }
