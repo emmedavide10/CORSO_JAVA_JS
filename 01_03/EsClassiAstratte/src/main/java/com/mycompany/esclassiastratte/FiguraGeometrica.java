@@ -12,7 +12,6 @@ public abstract class FiguraGeometrica {
     
     private String descrizione;
     
-    
     public FiguraGeometrica(String descrizione) {
         this.descrizione = descrizione;
     }
