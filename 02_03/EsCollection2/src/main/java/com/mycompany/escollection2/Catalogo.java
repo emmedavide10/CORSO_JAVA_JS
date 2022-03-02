@@ -42,7 +42,7 @@ public class Catalogo {
         while(it.hasNext()) {
             Articolo a = it.next();
             if(a.getPrezzo()>prezzo){
-                articoliList.remove(a);
+                it.remove();
             }
         }
         return articoliList;
