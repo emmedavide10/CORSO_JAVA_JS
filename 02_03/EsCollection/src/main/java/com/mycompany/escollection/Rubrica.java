@@ -63,7 +63,6 @@ public class Rubrica {
                     return c.getTelefono();
                 }
             }
-            return null;
-            
+            return null;            
         }
 }
